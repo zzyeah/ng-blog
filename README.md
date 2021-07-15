@@ -1,5 +1,7 @@
 # NgBlog
 
+基于angular框架搭建的博客项目系统
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
 ## Development server
