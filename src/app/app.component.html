@@ -7,10 +7,12 @@
   <ng-container viewBottom>
     <app-lr>
       <ng-container viewLeft>
-        <div style="background: #fcc;height: 100vh;"></div>
+        <div class="view-content">
+          <app-menu></app-menu>
+        </div>
       </ng-container>
       <ng-container viewRight>
-        <div style="background: #fff;height: 100vh;">
+        <div class="view-content">
           <router-outlet></router-outlet>
         </div>
       </ng-container>

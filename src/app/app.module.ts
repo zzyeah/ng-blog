@@ -9,6 +9,8 @@ import { ArticleDetailComponent } from './article/article-detail/article-detail.
 import { ProjectComponent } from './project/project.component';
 import { AvatarComponent } from './component/avatar/avatar.component';
 import { LayoutModule } from './common/layout/layout.module';
+import { MenuComponent } from './component/menu/menu.component';
+import { ComponentModule } from './component/component.module';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,11 @@ import { LayoutModule } from './common/layout/layout.module';
     ArticleComponent,
     ArticleDetailComponent,
     ProjectComponent,
-    AvatarComponent
   ],
   imports: [
     BrowserModule,
     LayoutModule,
+    ComponentModule,
     AppRoutingModule
   ],
   providers: [],
