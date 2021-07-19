@@ -4,6 +4,8 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { IconComponent } from './icon/icon.component';
+import { MenuListComponent } from './menu/menu-list/menu-list.component';
+import { ContactComponent } from './menu/contact/contact.component';
 
 const COMPONENTLIST = [AvatarComponent, MenuComponent];
 
@@ -11,7 +13,9 @@ const COMPONENTLIST = [AvatarComponent, MenuComponent];
   declarations: [
     AvatarComponent,
     MenuComponent,
-    IconComponent
+    IconComponent,
+    MenuListComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

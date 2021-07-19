@@ -29,10 +29,12 @@ const classMap = [
 })
 export class IconComponent implements OnInit {
   @Input() iconName: any
+  @Input() size : string
+
   public iconClass: string
   constructor() { }
-  
-  initClass(): void{
+
+  initClass(): void {
     for (const item of classMap) {
       if (item[0] === this.iconName) {
         this.iconClass = item[1];
