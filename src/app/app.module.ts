@@ -11,6 +11,8 @@ import { AvatarComponent } from './component/avatar/avatar.component';
 import { LayoutModule } from './common/layout/layout.module';
 import { MenuComponent } from './component/menu/menu.component';
 import { ComponentModule } from './component/component.module';
+import { AboutComponent } from './about/about.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ComponentModule } from './component/component.module';
     ArticleComponent,
     ArticleDetailComponent,
     ProjectComponent,
+    AboutComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
