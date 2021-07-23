@@ -10,7 +10,7 @@ import { EmptyComponent } from './empty/empty.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ImageLoaderComponent } from './image-loader/image-loader.component';
 
-const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingComponent];
+const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingComponent, ImageLoaderComponent, IconComponent];
 
 @NgModule({
   declarations: [

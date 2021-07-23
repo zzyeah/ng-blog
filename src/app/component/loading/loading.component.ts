@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-loading',
-  templateUrl: './loading.component.html',
+  selector: 'loading',
+  template: `<img src="../../../assets/img/loading.svg" alt="" class="loading-container">`,
   styleUrls: ['./loading.component.less']
 })
 export class LoadingComponent implements OnInit {

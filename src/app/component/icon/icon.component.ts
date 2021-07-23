@@ -23,7 +23,7 @@ const classMap = [
 ];
 
 @Component({
-  selector: 'app-icon',
+  selector: 'icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.less']
 })

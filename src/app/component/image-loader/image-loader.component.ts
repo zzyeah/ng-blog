@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-image-loader',
@@ -6,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image-loader.component.less']
 })
 export class ImageLoaderComponent implements OnInit {
+  @Input() src: string;
+  @Input() placeholder: string;
+  @Input() loading: boolean;
 
   constructor() { }
 

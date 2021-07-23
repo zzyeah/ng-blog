@@ -49,7 +49,7 @@ const content: data[] = [
         <img [src]="c.src" />
       </div>
       <a [href]="c.href" class="d-flex align-center">
-          <app-icon [iconName] = "c.type" class="c-icon"></app-icon>
+          <icon [iconName] = "c.type" class="c-icon"></icon>
           <div class="c-name flex-1">{{c.name}}</div>
       </a>
     </div>

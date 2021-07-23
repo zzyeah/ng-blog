@@ -1,4 +1,17 @@
-<div class="home-container">
-    showTime
-    <app-loading></app-loading>
+<div class="home-container" (wheel)="handleWheel($event)">
+  <ul class="carousel" [ngStyle]="{top: topVal}" #carousel>
+    <li *ngFor="let item of data" class="carousel-item">
+      <app-carousel-item [data]=item></app-carousel-item>
+    </li>
+  </ul>
+  <div class="icon icon-up" (click)="handleClickUp()">
+    <icon [iconName]="'arrowUp'"></icon>
+  </div>
+  <div class="icon icon-down" (click)="handleClickDown()">
+    <icon [iconName]="'arrowDown'"></icon>
+  </div>
+
+  <ul class="indicator">
+    <li [ngClass]="{active: i === page}" *ngFor="let item of data; let i = index" (click)="handleClick(i+1)"></li>
+  </ul>
 </div>

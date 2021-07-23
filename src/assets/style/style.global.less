@@ -24,20 +24,29 @@
   width: 100%;
 }
 
-.position-relative{
+.position-relative {
   position: relative;
 }
-.position-absolute{
+
+.position-absolute {
   position: absolute;
 }
 
-.direct-column{
+.direct-column {
   flex-direction: column;
 }
 
-.self-center(){
-  position: absolute;
+.self-center(@pos:absolute) {
+  position: @pos;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.self-fill(@pos: absolute) {
+  position: @pos;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }

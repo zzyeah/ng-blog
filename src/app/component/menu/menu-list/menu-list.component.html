@@ -2,7 +2,7 @@
   <ul *ngFor="let item of items">
     <li class="menu">
       <a [routerLink]=item.path routerLinkActive="active" class="center">
-        <app-icon [iconName]=item.icon></app-icon>
+        <icon [iconName]=item.icon></icon>
         <span class="flex-1">
           {{item.title}}
         </span>

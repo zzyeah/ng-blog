@@ -1,14 +1,89 @@
-span{ 
-    display: inline-block;
-    flex: 1;
+.home-container {
+  width: 100%;
+  height: 100%;
+
+  .carousel,
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: top .3s;
+  }
+
+  .icon {
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @gap: 1rem;
+
+  .icon-up {
+    left: 50%;
+    top: @gap;
+    animation: jump-up 2s infinite;
+  }
+
+  .icon-down {
+    left: 50%;
+    bottom: @gap;
+    animation: jump-down 2s infinite;
+  }
 }
-.nt-rpt-header-item{
-    flex: 1;
+
+
+@jump: 5px;
+
+@keyframes jump-up {
+  0% {
+    transform: translate(-50%, @jump);
+  }
+
+  50% {
+    transform: translate(-50%, -@jump);
+  }
+
+  100% {
+    transform: translate(-50%, @jump);
+  }
 }
-.nt-rpt-grid-header ul,
-.related-prom-content-title,
-.related-prom-content-detail li{
-    display: flex;
-    flex-direction: row;
-    
+
+@keyframes jump-down {
+  0% {
+    transform: translate(-50%, -@jump);
+  }
+
+  50% {
+    transform: translate(-50%, @jump);
+  }
+
+  100% {
+    transform: translate(-50%, -@jump);
+  }
 }
+
+
+.indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    li {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #000;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border: 1px solid #fff;
+      box-sizing: border-box;
+      &.active {
+        background: #fff;
+      }
+    }
+  }
