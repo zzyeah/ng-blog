@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, SimpleChange, ViewChild } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { HomeService } from 'src/app/service/home.service';
 
 export interface data {
@@ -8,7 +9,7 @@ export interface data {
   description: string,
 }
 
-const data: data[] = [
+const DATA: data[] = [
   {
     midImg: "http://mdrs.yuanjin.tech/img/20201031141507.jpg",
     bigImg: "http://mdrs.yuanjin.tech/img/20201031141350.jpg",
@@ -39,10 +40,10 @@ export class HomeComponent implements OnInit {
 
   public data: data[];
   public topVal: string;
-  public maxIndex = data.length;
+  public maxIndex: number;
   public page: number = 0;
-  public upShow: boolean;
-  public downShow: boolean;
+  public upShow: boolean = false;
+  public downShow: boolean = true;
   private height: number;
 
   constructor(
@@ -54,8 +55,21 @@ export class HomeComponent implements OnInit {
   }
 
   init() {
-    this.data = data;
-    this.height = this.carousel.nativeElement.offsetHeight;
+    this.homeService.loading = true;
+    this.homeService.loading = true;
+    this.getPageData().subscribe(
+      pages => {
+        this.data = pages;
+        this.homeService.loading = false;
+        this.maxIndex = pages.length;
+        this.height = this.carousel.nativeElement.offsetHeight;
+      }
+    );
+  }
+
+  getPageData(): Observable<data[]> {
+    const result = of(DATA);
+    return result;
   }
 
   handleClickUp() {
@@ -79,13 +93,14 @@ export class HomeComponent implements OnInit {
   }
 
   handleClick(index: number) {
-    this.move({ index: index })
+    this.move({ index: index });
   }
 
   move(options: {
     direct?: string,
     index?: number
   }) {
+    if (!this.maxIndex) return;
     if (options.direct === "up") {
       this.homeService.page--;
     } else if (options.direct === "down") {
@@ -93,10 +108,16 @@ export class HomeComponent implements OnInit {
     }
     if (options.index) {
       this.homeService.page = options.index - 1;
-      this.switchTo(this.homeService.page);
     }
+    if (this.homeService.page <= 0) this.upShow = false;
+    if (this.homeService.page > 0 && this.homeService.page < this.maxIndex) this.upShow = true;
+    if (this.homeService.page >= this.maxIndex - 1) this.downShow = false;
+    if (this.homeService.page < this.maxIndex - 1 && this.homeService.page >= 0) this.downShow = true;
+
+
     this.page = this.homeService.page;
     this.switchTo(this.homeService.page);
+
   }
 
   switchTo(index: number) {

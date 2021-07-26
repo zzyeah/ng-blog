@@ -4,16 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HomeService {
-  public loading: boolean = false;
+  private _loading: boolean = false;
+  private _allDone: boolean = false;
   public page: number = 0;
 
   constructor() { }
 
-  getLoading() {
-    return this.loading;
+  get loading() {
+    return this._loading;
   }
 
-  setLoading(val: boolean): void {
-    this.loading = val;
+  set loading(val: boolean) {
+    this._loading = val;
+  }
+
+  get allDone() {
+    if (!this.loading) this._allDone = true;
+    if (this.loading) this._allDone = false;
+    return this._allDone;
   }
 }

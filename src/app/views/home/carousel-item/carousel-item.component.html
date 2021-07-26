@@ -2,4 +2,6 @@
   <div class="carousel-img">
     <app-image-loader [src]='data.bigImg' [placeholder]="data.midImg"></app-image-loader>
   </div>
+  <div class="title" [@showWords]="titleStart?'start':'end'">{{data.title}}</div>
+  <div class="desc" [@showWords]="descStart?'start':'end'">{{data.description}}</div>
 </div>

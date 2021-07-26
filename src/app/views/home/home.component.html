@@ -1,13 +1,14 @@
 <div class="home-container" (wheel)="handleWheel($event)">
-  <ul class="carousel" [ngStyle]="{top: topVal}" #carousel>
+  
+  <ul class="carousel" [ngStyle]="{top: topVal}" #carousel >
     <li *ngFor="let item of data" class="carousel-item">
       <app-carousel-item [data]=item></app-carousel-item>
     </li>
   </ul>
-  <div class="icon icon-up" (click)="handleClickUp()">
+  <div class="icon icon-up" (click)="handleClickUp()" *ngIf="upShow">
     <icon [iconName]="'arrowUp'"></icon>
   </div>
-  <div class="icon icon-down" (click)="handleClickDown()">
+  <div class="icon icon-down" (click)="handleClickDown()" *ngIf="downShow">
     <icon [iconName]="'arrowDown'"></icon>
   </div>
 

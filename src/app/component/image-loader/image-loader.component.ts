@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/service/home.service';
 
 
 
@@ -11,11 +12,25 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ImageLoaderComponent implements OnInit {
   @Input() src: string;
   @Input() placeholder: string;
-  @Input() loading: boolean;
+  @Input() duration: number = 5000;
+  public loading: boolean;
+  public opacityOrigin: number = 0;
+  public allDone: boolean = false;
 
-  constructor() { }
+  constructor(
+    private homeSevice: HomeService
+  ) { }
 
   ngOnInit(): void {
   }
+
+  handleLoading() {
+    this.opacityOrigin = 1;
+    setTimeout(() => {
+      this.homeSevice.loading = false;
+      if(this.homeSevice.allDone) this.allDone = true
+    }, this.duration);
+  }
+
 
 }
