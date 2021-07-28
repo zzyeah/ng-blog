@@ -9,8 +9,10 @@ import { ContactComponent } from './menu/contact/contact.component';
 import { EmptyComponent } from './empty/empty.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ImageLoaderComponent } from './image-loader/image-loader.component';
+import { TopComponent } from './top/top.component';
+import { LayoutModule } from '../common/layout/layout.module';
 
-const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingComponent, ImageLoaderComponent, IconComponent];
+const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingComponent, ImageLoaderComponent, IconComponent, TopComponent];
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingCo
     ContactComponent,
     EmptyComponent,
     LoadingComponent,
-    ImageLoaderComponent
+    ImageLoaderComponent,
+    TopComponent
   ],
   imports: [
     CommonModule,
+    LayoutModule,
     RouterModule
   ],
   exports: [

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { layoutSizeBean } from 'src/app/bean/layout/layout.bean';
 
 @Component({
   selector: 'app-lr',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lr.component.less']
 })
 export class LrComponent implements OnInit {
+  @Input() leftSize: layoutSizeBean;
+  @Input() rightSize: layoutSizeBean;
 
   constructor() { }
 

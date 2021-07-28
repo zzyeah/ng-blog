@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './views/about/about.component';
 import { ArticleDetailComponent } from './views/article/article-detail/article-detail.component';
 import { ArticleComponent } from './views/article/article.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'project', component: ProjectComponent },
   { path: 'about', component: AboutComponent },
   { path: 'message', component: MessageComponent },
-  { path: '**', redirectTo: '/article' }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

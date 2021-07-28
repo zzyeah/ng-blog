@@ -1,15 +1,10 @@
 import { Component, ElementRef, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { homeImgDataBean } from 'src/app/bean/home/homeImg.bean';
 import { HomeService } from 'src/app/service/home.service';
 
-export interface data {
-  midImg: string,
-  bigImg: string,
-  title: string,
-  description: string,
-}
 
-const DATA: data[] = [
+const DATA: homeImgDataBean[] = [
   {
     midImg: "http://mdrs.yuanjin.tech/img/20201031141507.jpg",
     bigImg: "http://mdrs.yuanjin.tech/img/20201031141350.jpg",
@@ -38,7 +33,7 @@ const DATA: data[] = [
 export class HomeComponent implements OnInit {
   @ViewChild('carousel', { static: true }) protected carousel: ElementRef;
 
-  public data: data[];
+  public data: homeImgDataBean[];
   public topVal: string;
   public maxIndex: number;
   public page: number = 0;
@@ -67,7 +62,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getPageData(): Observable<data[]> {
+  getPageData(): Observable<homeImgDataBean[]> {
     const result = of(DATA);
     return result;
   }

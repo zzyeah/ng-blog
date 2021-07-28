@@ -13,7 +13,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { data } from '../home.component';
+import { homeImgDataBean } from 'src/app/bean/home/homeImg.bean';
 
 @Component({
   selector: 'app-carousel-item',
@@ -37,7 +37,7 @@ import { data } from '../home.component';
 })
 export class CarouselItemComponent implements OnInit {
 
-  @Input() data: data;
+  @Input() data: homeImgDataBean;
 
   titleStart = true;
   descStart: boolean = true;

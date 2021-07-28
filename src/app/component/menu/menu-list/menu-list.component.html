@@ -1,6 +1,6 @@
-<nav>
-  <ul *ngFor="let item of items">
-    <li class="menu">
+<nav class="menu-list-container">
+  <ul class="menu">
+    <li *ngFor="let item of items">
       <a [routerLink]=item.path routerLinkActive="active" class="center">
         <icon [iconName]=item.icon></icon>
         <span class="flex-1">

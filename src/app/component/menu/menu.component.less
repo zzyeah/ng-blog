@@ -1,14 +1,16 @@
+@import 'src/assets/style/var.less';
+
 a {
   cursor: pointer;
 }
 
 .menu-container {
   height: 100%;
-  //   background: rgb(97, 97, 102);
-  background: #ffcccc;
+  background: @dark;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: @gray;
 
   .menu-top-container {
     display: flex;
@@ -18,6 +20,7 @@ a {
     box-sizing: border-box;
     flex-basis: 10rem;
     margin: 1rem;
+
   }
 
   .menu-content {

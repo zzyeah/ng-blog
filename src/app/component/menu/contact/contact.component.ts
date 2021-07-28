@@ -1,16 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { contactDataBean } from 'src/app/bean/menu/contact.bean';
 
 
-interface data {
-  type: string,
-  name: string,
-  href: string,
-  id?: number | string,
-  src?: string,
-}
 
-const content: data[] = [
+
+const content: contactDataBean[] = [
   {
     type: "github",
     name: "zzyeah",
