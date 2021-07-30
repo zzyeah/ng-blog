@@ -1,1 +1,9 @@
-<p>right-list works!</p>
+<ul class="right-list-container">
+  <li *ngFor="let item of list">
+    <span (click)="handleClick(item)" [ngClass]="{ active: item.isSelect }">
+      {{ item.name }}
+    </span>
+    <span *ngIf="item.aside" class="aside" (click)="handleClick(item)"
+      [ngClass]="{ active: item.isSelect }">{{ item.aside }}</span>
+  </li>
+</ul>

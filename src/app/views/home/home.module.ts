@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ComponentModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     HomeComponent,

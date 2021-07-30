@@ -3,4 +3,5 @@ export class homeImgDataBean {
     public bigImg: string;
     public title: string;
     public description: string;
+    public id: number;
 }

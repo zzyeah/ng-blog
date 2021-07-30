@@ -6,6 +6,9 @@ import { LayoutModule } from './common/layout/layout.module';
 import { ComponentModule } from './component/component.module';
 import { ViewsModule } from './views/views.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ApiService } from './api/api.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LayoutModule,
     ComponentModule,
     ViewsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      ApiService, { dataEncapsulation: false }
+    ),
     AppRoutingModule
   ],
   providers: [],

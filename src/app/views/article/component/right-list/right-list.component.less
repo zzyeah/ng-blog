@@ -1,0 +1,23 @@
+@import "src/assets/style/var.less";
+.right-list-container {
+  list-style: none;
+  padding: 0;
+  cursor: pointer;
+  .right-list-container {
+    margin-left: 1em;
+  }
+  li {
+    min-height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    .active {
+      color: @warn;
+      font-size: bold;
+    }
+  }
+}
+.aside {
+  font-size: 12px;
+  margin-left: 1em;
+  color: @gray;
+}

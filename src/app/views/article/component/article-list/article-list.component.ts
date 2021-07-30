@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { articleListBean, articleListDataBean } from 'src/app/bean/article/list.bean';
+import { BlogService } from 'src/app/service/blog.service';
 
 @Component({
   selector: 'app-article-list',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-list.component.less']
 })
 export class ArticleListComponent implements OnInit {
+  public data: articleListBean[];
 
-  constructor() { }
+  constructor(private articleService: BlogService) { }
 
   ngOnInit(): void {
+    this.articleService.getArticleListData().subscribe((r) => {
+      this.data = r.rows;
+    })
   }
 
 }
