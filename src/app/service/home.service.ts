@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { homeImgDataBean } from '../bean/home/homeImg.bean';
+import { homeImgDataBean, ImgDataArray } from '../bean/home/homeImg.bean';
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -29,7 +29,10 @@ export class HomeService {
   }
 
   getData(): Observable<homeImgDataBean[]> {
-    return this.http.get<homeImgDataBean[]>('api/homeData').pipe(
+    return this.http.get<ImgDataArray>('api/banner').pipe(
+      map(r=>{
+        return r.data;
+      }),
       catchError(this.handleError<homeImgDataBean[]>('getData', []))
     )
   }
