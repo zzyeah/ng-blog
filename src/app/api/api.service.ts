@@ -79,12 +79,7 @@ export class ApiService implements InMemoryDbService {
       })
     ]
 
-    return { homeData, articleTypeData, articleListData }
+    return { homeData, category: articleTypeData, blog: articleListData }
   }
-  genId(homeData: homeImgDataBean[]): number {
-    return homeData.length > 0 ? Math.max(...homeData.map(hero => hero.id)) + 1 : 11;
-  }
-
-
   constructor() { }
 }

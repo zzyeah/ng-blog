@@ -41,7 +41,7 @@ export class ArticleCategoryComponent implements OnInit {
       this.router.navigate([`article/cate/${el.id}`], {
         queryParams: {
           ...query
-        }
+        },
       });
     }
   };

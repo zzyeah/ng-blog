@@ -11,13 +11,13 @@ import { articleListData, articleListDataBean } from '../bean/article/list.bean'
 export class BlogService {
 
   getArticleTypeData(): Observable<articleCategoryBean[]> {
-    return this.http.get<articleCategoryData[]>('api/articleTypeData').pipe(
+    return this.http.get<articleCategoryData[]>('api/category').pipe(
       map(r => r[0].data.data)
     )
   }
 
-  getTypeById(page = 1, limit = 10, categoryid = -1): Observable<any> {
-    return this.http.get('api/articleTypeData', {
+  getBlogById(page = 1, limit = 10, categoryid = -1): Observable<any> {
+    return this.http.get('api/blog', {
       params: {
         page,
         limit,
@@ -27,7 +27,7 @@ export class BlogService {
   }
 
   getArticleListData(): Observable<articleListDataBean> {
-    return this.http.get<articleListData[]>('api/articleListData').pipe(
+    return this.http.get<articleListData[]>('/api/blog').pipe(
       map(r => r[0].data)
     );
   }
