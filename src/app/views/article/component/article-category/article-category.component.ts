@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { articleCategoryBean } from 'src/app/bean/article/category.bean';
+import { BlogService } from 'src/app/service/blog.service';
 
 @Component({
   selector: 'app-article-category',
@@ -8,14 +9,52 @@ import { articleCategoryBean } from 'src/app/bean/article/category.bean';
   styleUrls: ['./article-category.component.less']
 })
 export class ArticleCategoryComponent implements OnInit {
+  public _list: articleCategoryBean[] = [];
+  public data: articleCategoryBean[]
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private articleService: BlogService,
   ) { }
 
   ngOnInit(): void {
+    this.initData();
+  }
 
+  private initData() {
+    this.articleService.getArticleTypeData().subscribe((response) => {
+      this.data = response;
+      this.articleService.dataLength = response.length;
+      const target = this.route.snapshot.paramMap.get('categoryId');
+      if (target) {
+        if (+target > this.articleService.dataLength || +target < 1 || +target % 1 !== 0) {
+          this.router.navigate(['home'])
+        }
+      }
+    })
+  }
+
+  public get list() {
+    const totalArticleCount = this.data.reduce(
+      (a, b) => a + b.articleCount,
+      0
+    );
+    return this._list = [
+      {
+        name: '全部',
+        id: -1,
+        articleCount: totalArticleCount,
+        order: -1,
+      },
+      ...this.data,
+    ].map(
+      (data) => ({
+        ...data,
+        isSelect: data.id,
+        aside: `${data.articleCount}篇`
+      })
+    );
   }
 
   private get limit() {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import './mock/index'
 
 @Component({
   selector: 'app-root',

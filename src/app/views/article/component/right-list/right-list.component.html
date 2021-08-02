@@ -1,9 +1,9 @@
-<ul class="right-list-container">
+<ul class="right-list-container" *ngIf="list">
   <li *ngFor="let item of list">
-    <span (click)="handleClick(item)" [ngClass]="{ active: item.isSelect }">
+    <span [ngClass]="{ active: item.isSelect === categoryId }" (click)="handleClick(item)">
       {{ item.name }}
     </span>
-    <span *ngIf="item.aside" class="aside" (click)="handleClick(item)"
-      [ngClass]="{ active: item.isSelect }">{{ item.aside }}</span>
+    <span *ngIf="item.aside" class="aside" [ngClass]="{ active: item.isSelect === categoryId }"
+      (click)="handleClick(item)">{{ item.aside }}</span>
   </li>
 </ul>

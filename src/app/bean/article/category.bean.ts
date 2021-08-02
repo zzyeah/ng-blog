@@ -3,14 +3,12 @@ export class articleCategoryBean {
     public id: number;
     public name: string;
     public order: number;
-    public isSelect?: boolean;
+    public isSelect?: boolean | number;
     public aside?: string;
 }
 
 export class articleCategoryData {
     public code: number;
     public msg: string;
-    public data: {
-        data: articleCategoryBean[]
-    };
+    public data: articleCategoryBean[]
 }

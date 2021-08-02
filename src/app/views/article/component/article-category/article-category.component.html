@@ -1,4 +1,4 @@
 <div class="article-category-container">
   <h2>文章分类</h2>
-  <app-right-list (select)=handleSelect($event)></app-right-list>
+  <app-right-list (select)=handleSelect($event) [list]="list" *ngIf="data"></app-right-list>
 </div>

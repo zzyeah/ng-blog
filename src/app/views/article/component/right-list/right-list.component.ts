@@ -1,6 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { articleCategoryBean } from 'src/app/bean/article/category.bean';
 import { BlogService } from 'src/app/service/blog.service';
@@ -11,61 +12,30 @@ import { BlogService } from 'src/app/service/blog.service';
   styleUrls: ['./right-list.component.less']
 })
 export class RightListComponent implements OnInit {
-  private _list: articleCategoryBean[];
-  private data: articleCategoryBean[];
-  public _id: number;
-
+  @Input() list: articleCategoryBean[];
+  public lists: articleCategoryBean[];
   @Output() select: EventEmitter<any> = new EventEmitter()
+  private _id: number | string | null;
 
   constructor(private articleService: BlogService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.initData();
+    console.log(this.list);
+    
   }
 
   public get categoryId() {
-    this.route.params.subscribe(r => this.categoryId = parseInt(r.categoryId));
-    return this._id || -1;
-  }
-
-  public set categoryId(val) {
-    this._id = val
-  }
-
-  initData() {
-    this.articleService.getArticleTypeData().subscribe(
-      r => {
-        this.data = r;
-      }
-    )
-  }
-
-  public get list() {
-    const totalActicleCount = this.data.reduce(
-      (a, b) => a + b.articleCount,
-      0
-    );
-    const all: articleCategoryBean = { name: '全部', id: -1, articleCount: totalActicleCount, order: -1 }
-    const result = [
-      all,
-      ...this.data
-    ]
-    this.list = result.map(it => ({
-      ...it,
-      isSelect: it.id === this.categoryId,
-      aside: `${it.articleCount}篇`
-    })
-    );
-
-    return this._list;
-  }
-
-  public set list(val) {
-    this._list = val;
+    this._id = this.route.snapshot.paramMap.get('categoryId');
+    if (this._id) {
+      return +this._id;
+    }
+    return -1;
   }
 
   handleClick(item: articleCategoryBean) {
-    if (!item.isSelect) {
+    console.log(item);
+
+    if (item.isSelect !== this._id) {
       this.select.emit(item);
     }
     return;
