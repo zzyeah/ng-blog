@@ -23,9 +23,14 @@ export class ArticleCategoryComponent implements OnInit {
   }
 
   private initData() {
+    if (this.articleService.category) {
+      this.data = this.articleService.category;
+      return;
+    };
     this.articleService.getArticleTypeData().subscribe((response) => {
-      this.data = response;
+      this.articleService.category = response;
       this.articleService.dataLength = response.length;
+      this.data = this.articleService.category;
       const target = this.route.snapshot.paramMap.get('categoryId');
       if (target) {
         if (+target > this.articleService.dataLength || +target < 1 || +target % 1 !== 0) {

@@ -1,5 +1,5 @@
 <div class="article-list-container">
-  <ul>
+  <ul *ngIf="data">
     <li *ngFor="let item of data">
       <div class="thumb">
         <a [routerLink]="'/home'">

@@ -20,7 +20,6 @@ export class RightListComponent implements OnInit {
   constructor(private articleService: BlogService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.list);
     
   }
 

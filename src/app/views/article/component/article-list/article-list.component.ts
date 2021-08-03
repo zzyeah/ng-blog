@@ -16,7 +16,7 @@ export class routeInfo {
 })
 export class ArticleListComponent implements OnInit {
   private _data: articleListBean[];
-
+  
   constructor(
     private articleService: BlogService,
     private route: ActivatedRoute,
@@ -28,14 +28,12 @@ export class ArticleListComponent implements OnInit {
   }
 
   public set data(val) {
-    console.log(val);
     this._data = val;
   }
 
   ngOnInit(): void {
     this.articleService.getArticleListData(this.routeInfo).subscribe((r) => {
       this.data = r.rows;
-      console.log(this.routeInfo);
     })
   }
 
