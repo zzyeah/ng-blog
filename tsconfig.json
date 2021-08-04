@@ -20,7 +20,8 @@
       "es2018",
       "dom"
     ],
-    "strictPropertyInitialization":false
+    "paths": {},
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

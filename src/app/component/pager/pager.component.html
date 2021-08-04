@@ -1,0 +1,7 @@
+<div class="pager-container">
+  <a (click)="handleClick(1)">&lt;</a>
+  <a (click)="handleClick(current - 1)">&lt;</a>
+  <a (click)="handleClick(n)" *ngFor="let n of numbers" [ngClass]="{active: n===current}">{{n}}</a>
+  <a (click)="handleClick(current + 1)">&gt;</a>
+  <a (click)="handleClick(pageNumber)">&gt;</a>
+</div>

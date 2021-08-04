@@ -1,0 +1,24 @@
+@import 'src/assets/style/var.less';
+
+.pager-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  a {
+    color: @primary;
+    margin: 0 6px;
+    cursor: pointer;
+
+    &.disabled {
+      color: @lightWords;
+      cursor: not-allowed;
+    }
+
+    &.active {
+      color: @words;
+      font-weight: bold;
+      cursor: text;
+    }
+  }
+}

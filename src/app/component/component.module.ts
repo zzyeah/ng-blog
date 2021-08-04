@@ -11,8 +11,9 @@ import { LoadingComponent } from './loading/loading.component';
 import { ImageLoaderComponent } from './image-loader/image-loader.component';
 import { TopComponent } from './top/top.component';
 import { LayoutModule } from '../common/layout/layout.module';
+import { PagerComponent } from './pager/pager.component';
 
-const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingComponent, ImageLoaderComponent, IconComponent, TopComponent];
+const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingComponent, ImageLoaderComponent, IconComponent, TopComponent, PagerComponent];
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ const COMPONENTLIST = [AvatarComponent, MenuComponent, EmptyComponent, LoadingCo
     EmptyComponent,
     LoadingComponent,
     ImageLoaderComponent,
-    TopComponent
+    TopComponent,
+    PagerComponent
   ],
   imports: [
     CommonModule,

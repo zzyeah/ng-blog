@@ -1,13 +1,13 @@
-<div class="article-list-container">
+<div class="article-list-container" #blogContainer>
   <ul *ngIf="data">
-    <li *ngFor="let item of data">
+    <li *ngFor="let item of data.rows">
       <div class="thumb">
         <a [routerLink]="'/home'">
           <img [src]="item.thumb" alt="">
         </a>
       </div>
       <div class="main">
-        <a class="title" [routerLink]="['/detail/1']" routerLinkActive="active">
+        <a class="title" (click)="handleDetailClick(item.id)">
           <h2>{{item.title}}</h2>
         </a>
         <div class="aside">
@@ -20,7 +20,7 @@
           <span>
             评论: {{item.commentNumber}}
           </span>
-          <a [routerLink]="['/home']" routerLinkActive="active">
+          <a (click)="handleAClick(item.category.id)">
             {{item.category.name}}
           </a>
         </div>
@@ -30,4 +30,7 @@
       </div>
     </li>
   </ul>
+
+  <pager [current]="routeInfo.page" *ngIf="data" [total]="data.total" [limit]="routeInfo.limit" [visibleNumber]="10"
+    (pageChange)="handlePageChange($event)"></pager>
 </div>

@@ -34,8 +34,7 @@ export class BlogService {
 
   getArticleListData(options: routeInfo): Observable<articleListDataBean> {
     return this.http.get<articleListData>(`api/blog`).pipe(
-      map(r => {console.log(r);return r.data}),
-      tap(()=>{console.log(options.categoryId)})
+      map(r => r.data)
     );
   }
 
@@ -51,9 +50,9 @@ export class BlogService {
   public get dataLength() {
     return this._dataLength;
   }
-  
-  public get category(){
-    if(!this._category) return undefined;
+
+  public get category() {
+    if (!this._category) return undefined;
     return this._category;
   }
 
@@ -68,8 +67,8 @@ export class BlogService {
     this._dataLength = val;
   }
 
-  public set category(val){
-    if(this._category) return;
+  public set category(val) {
+    if (this._category) return;
     this._category = val
   }
 }
