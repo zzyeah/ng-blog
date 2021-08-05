@@ -10,7 +10,8 @@ import { BlogService } from 'src/app/service/blog.service';
 })
 export class ArticleCategoryComponent implements OnInit {
   public _list: articleCategoryBean[] = [];
-  public data: articleCategoryBean[]
+  public data: articleCategoryBean[];
+  public loading: boolean = true;
 
   constructor(
     private router: Router,
@@ -23,14 +24,17 @@ export class ArticleCategoryComponent implements OnInit {
   }
 
   private initData() {
+    this.loading = true;
     if (this.articleService.category) {
       this.data = this.articleService.category;
+      this.loading = false;
       return;
     };
     this.articleService.getArticleTypeData().subscribe((response) => {
       this.articleService.category = response;
       this.articleService.dataLength = response.length;
       this.data = this.articleService.category;
+      this.loading = false;
       const target = this.route.snapshot.paramMap.get('categoryId');
       if (target) {
         if (+target > this.articleService.dataLength || +target < 1 || +target % 1 !== 0) {

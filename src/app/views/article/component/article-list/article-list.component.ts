@@ -17,6 +17,8 @@ export class routeInfo {
   styleUrls: ['./article-list.component.less']
 })
 export class ArticleListComponent implements OnInit {
+  public img: string ='src/assets/img/default.gif';
+  public loading: boolean = true;
   private _data: articleListDataBean;
   @ViewChild('blogContainer', { static: true }) private blogContainer: ElementRef
 
@@ -53,6 +55,7 @@ export class ArticleListComponent implements OnInit {
     const params = this.route.params;
     combineLatest([query, params]).subscribe(() => {
       this.blogContainer.nativeElement.scrollTop = 0;
+      this.loading = true;
       this.fetchData();
     })
   };
@@ -60,7 +63,9 @@ export class ArticleListComponent implements OnInit {
 
   fetchData(): void {
     this.articleService.getArticleListData(this.routeInfo).subscribe((r) => {
+      this.articleService.loading = false
       this.data = r;
+      this.loading = false;
     })
   }
 

@@ -13,6 +13,7 @@ import { BlogService } from 'src/app/service/blog.service';
 })
 export class RightListComponent implements OnInit {
   @Input() list: articleCategoryBean[];
+  @Input() loading: boolean;
   public lists: articleCategoryBean[];
   @Output() select: EventEmitter<any> = new EventEmitter()
   private _id: number | string | null;

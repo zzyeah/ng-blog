@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import { merge, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { articleCategoryBean, articleCategoryData } from '../bean/article/category.bean';
 import { articleListData, articleListDataBean } from '../bean/article/list.bean';
@@ -10,14 +9,20 @@ import { routeInfo } from '../views/article/component/article-list/article-list.
 @Injectable({
   providedIn: 'root'
 })
-export class BlogService {
-  private _loading = false;
+export class BlogService implements OnInit {
+  private _loading = true;
   private _dataLength: number;
   private _category: articleCategoryBean[] | undefined;
 
+  ngOnInit() {
+    this.getDataObservable()
+  }
+
   getArticleTypeData(): Observable<articleCategoryBean[]> {
     return this.http.get<articleCategoryData>('api/blogtype').pipe(
-      map(r => r.data)
+      map(r => {
+        return r.data
+      })
     )
   }
 
@@ -34,9 +39,19 @@ export class BlogService {
 
   getArticleListData(options: routeInfo): Observable<articleListDataBean> {
     return this.http.get<articleListData>(`api/blog`).pipe(
-      map(r => r.data)
+      map(r => {
+        this.loading = true;
+        return r.data
+      })
     );
   }
+
+  getDataObservable() {
+    merge([this.getArticleListData]).subscribe(() => {
+      this.loading = false;
+    })
+  }
+
 
   constructor(private http: HttpClient) { }
 

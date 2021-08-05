@@ -1,8 +1,10 @@
 <div class="article-list-container" #blogContainer>
-  <ul *ngIf="data">
+  <loading *ngIf="loading"></loading>
+
+  <ul *ngIf="data && !loading">
     <li *ngFor="let item of data.rows">
       <div class="thumb">
-        <a [routerLink]="'/home'">
+        <a (click)="handleDetailClick(item.id)">
           <img [src]="item.thumb" alt="">
         </a>
       </div>
@@ -31,6 +33,6 @@
     </li>
   </ul>
 
-  <pager [current]="routeInfo.page" *ngIf="data" [total]="data.total" [limit]="routeInfo.limit" [visibleNumber]="10"
-    (pageChange)="handlePageChange($event)"></pager>
+  <pager [current]="routeInfo.page" *ngIf="data && !loading" [total]="data.total" [limit]="routeInfo.limit"
+    [visibleNumber]="10" (pageChange)="handlePageChange($event)"></pager>
 </div>
