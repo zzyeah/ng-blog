@@ -14,7 +14,7 @@ import { RightListComponent } from './component/right-list/right-list.component'
     ArticleListComponent,
     ArticleCategoryComponent,
     ArticleComponent,
-    RightListComponent
+    RightListComponent,
   ],
   imports: [
     CommonModule,

@@ -7,6 +7,7 @@ import { ComponentModule } from '../component/component.module';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { ArticleModule } from './article/article.module';
+import { ArticleDetailModule } from './article/article-detail/article-detail.module';
 
 const VIEWSLIST = [AboutComponent,  MessageComponent, ProjectComponent]
 
@@ -19,6 +20,7 @@ const VIEWSLIST = [AboutComponent,  MessageComponent, ProjectComponent]
     ComponentModule,
     HomeModule,
     ArticleModule,
+    ArticleDetailModule,
     RouterModule
   ],
   exports: [
