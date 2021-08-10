@@ -26,13 +26,8 @@ export class BlogService implements OnInit {
     )
   }
 
-  getBlogById(page = 1, limit = 10, articleId = -1): Observable<any> {
-    return this.http.get(`api/blog/${articleId}`, {
-      params: {
-        page,
-        limit,
-      }
-    }).pipe(
+  getBlogById(articleId = -1): Observable<any> {
+    return this.http.get(`api/blog/${articleId}`).pipe(
       tap(() => console.log(`find blog ${articleId}`))
     )
   }

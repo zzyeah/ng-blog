@@ -16,7 +16,6 @@ mock('api/blogtype', 'get', {
 
 mock(/^api\/blog(\?.+)?$/, 'get', function (options: { url: any; }) {
     const query = qs.parse(options.url);
-    // console.log(query);
     const data = {
         "total|2000-3000": 0,
         [`rows|${query.limit || 10}`]: [{
@@ -43,8 +42,8 @@ mock(/^api\/blog(\?.+)?$/, 'get', function (options: { url: any; }) {
     });
 });
 
-// import blog from './blog-content';
-// mock(/^\/api\/blog\/[^/]+$/, 'get', blog);
+import blog from './blog-content.mock';
+mock(/^api\/blog\/[^/]+$/, 'get', blog);
 
 mock('/api/comment', 'post', {
     code: 0,
@@ -63,7 +62,7 @@ mock('/api/comment', 'post', {
     },
 })
 
-mock(/^\/api\/comment\/?(\?.+)?$/, 'get', function (options: { url: any; }) {
+mock(/^api\/comment\/?(\?.+)?$/, 'get', function (options: { url: any; }) {
     const query = qs.parse(options.url);
     // console.log(query);
     return mock({

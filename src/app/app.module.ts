@@ -7,11 +7,13 @@ import { ComponentModule } from './component/component.module';
 import { ViewsModule } from './views/views.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipePipe } from './pipe/date-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    DatePipePipe,
   ],
   imports: [
     BrowserModule,

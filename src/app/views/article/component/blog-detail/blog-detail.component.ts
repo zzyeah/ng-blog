@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-detail',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-detail.component.less']
 })
 export class BlogDetailComponent implements OnInit {
+  @Input() blog: any;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  searchCid(cid: number) {
+    this.router.navigate([`article/cate/${cid}`]);
   }
 
 }

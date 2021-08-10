@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BlogDetailComponent } from '../component/blog-detail/blog-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ArticleDetailComponent } from './article-detail.component';
+import { LayoutModule } from 'src/app/common/layout/layout.module';
 
 
 
@@ -14,6 +15,7 @@ import { ArticleDetailComponent } from './article-detail.component';
   imports: [
     CommonModule,
     FormsModule,
+    LayoutModule
   ],
   exports: [
     ArticleDetailComponent

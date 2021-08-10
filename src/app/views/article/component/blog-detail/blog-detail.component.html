@@ -1,1 +1,10 @@
-    
+<div class="blog-detail-container">
+  <h1>{{blog.title}}</h1>
+  <div class="aside">
+    <span>日期:{{blog.createDate | date:'yyyy-MM-dd'}}</span>
+    <span>浏览量:{{blog.scanNumber}}</span>
+    <a href="#data-form-container">评论：{{ blog.commentNumber }}</a>
+    <span (click)="searchCid(1)" *ngIf="blog.category">{{blog.category.name}}</span>
+  </div>
+  <div [innerHTML]="blog.htmlContent" class="markdown-body"></div>
+</div>

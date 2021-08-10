@@ -20,7 +20,7 @@ import { RightListComponent } from './component/right-list/right-list.component'
     CommonModule,
     LayoutModule,
     ComponentModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     ArticleComponent
