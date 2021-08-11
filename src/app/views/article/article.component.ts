@@ -13,7 +13,7 @@ import { BlogService } from 'src/app/service/blog.service';
 })
 export class ArticleComponent implements OnInit {
   public leftSize: layoutSizeBean = {
-    flex: '1 0 auto'
+    flex: '1 0 80%'
   }
   public rightSize: layoutSizeBean = {
     flex: '0 0 19rem'

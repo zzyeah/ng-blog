@@ -10,6 +10,7 @@ import { BlogService } from 'src/app/service/blog.service';
 })
 export class ArticleDetailComponent implements OnInit {
   public _blog: [] = [];
+  public isLoading:boolean = true;
   public leftSize:layoutSizeBean = {
     'flex': '0 0 77%'
   }
@@ -30,8 +31,8 @@ export class ArticleDetailComponent implements OnInit {
 
   dataInit() {
     const { id } = this.route.snapshot.params;
-    console.log(id);
     this.blogService.getBlogById(id).subscribe(r => {
+      this.isLoading = false;
       this._blog = r.data
       console.log(r.data);
     });

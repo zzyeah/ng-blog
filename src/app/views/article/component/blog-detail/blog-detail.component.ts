@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-blog-detail',
+  selector: 'blog-detail',
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.less']
 })

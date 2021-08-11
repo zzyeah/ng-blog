@@ -7,6 +7,7 @@ import { ComponentModule } from 'src/app/component/component.module';
 import { LayoutModule } from 'src/app/common/layout/layout.module';
 import { RouterModule } from '@angular/router';
 import { RightListComponent } from './component/right-list/right-list.component';
+import { ArticleDetailModule } from './article-detail/article-detail.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { RightListComponent } from './component/right-list/right-list.component'
     CommonModule,
     LayoutModule,
     ComponentModule,
+    ArticleDetailModule,
     RouterModule,
   ],
   exports: [
