@@ -1,10 +1,11 @@
 <app-lr [leftSize]="leftSize">
   <div class="main-container" viewLeft>
     <loading *ngIf="isLoading"></loading>
-    <blog-detail [blog]="blog" *ngIf="!isLoading"></blog-detail>
+    <!-- <blog-detail [blog]="blog" *ngIf="!isLoading"></blog-detail> -->
     <blog-comment></blog-comment>
   </div>
-  <div class="right-container" v-loading="isLoading" viewRight>
-    <blog-TOC :toc="data.toc" v-if="data"></blog-TOC>
+  <div class="right-container" viewRight>
+    <loading *ngIf="isLoading"></loading>
+    <blog-TOC :toc="data.toc" *ngIf="!isLoading"></blog-TOC>
   </div>
 </app-lr>

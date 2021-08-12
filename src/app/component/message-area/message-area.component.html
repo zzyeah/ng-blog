@@ -1,0 +1,10 @@
+<div class="message-area-container">
+  <data-form v-on="$listeners"></data-form>
+  <h3>
+    评论列表 (52)
+  </h3>
+  <data-list [list]="list"></data-list>
+  <div class="loading">
+    <loading *ngIf="isLoading"></loading>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { routeInfo } from '../views/article/component/article-list/article-list.
   providedIn: 'root'
 })
 export class BlogService implements OnInit {
-  private _loading = true;
+  private _loading = false;
   private _dataLength: number;
   private _category: articleCategoryBean[] | undefined;
 
@@ -39,6 +39,20 @@ export class BlogService implements OnInit {
         return r.data
       })
     );
+  }
+
+  getComments(blogid: any, page = 1, limit = 10): Observable<any> {
+    return this.http.get(`api/comment/${blogid}`, {
+      params: {
+        page,
+        limit
+      }
+    }).pipe(
+      map(r => {
+        console.log(r);
+        return r;
+      })
+    )
   }
 
   getDataObservable() {

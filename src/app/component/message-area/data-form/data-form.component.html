@@ -1,0 +1,23 @@
+<form id="data-form-container" ref="form" (submit)="handleSubmit()" class="data-form-container">
+  <div class="form-item">
+    <div class="input-area">
+      <input type="text" maxlength="10" [(ngModel)]="formData.nickname" placeholder="用户昵称" name="nickname" />
+      <span class="tip">{{ formData.nickname.length }}/10</span>
+    </div>
+    <div class="error">{{ error.nickname }}</div>
+  </div>
+  <div class="form-item">
+    <div class="text-area">
+      <textarea maxlength="300" placeholder="输入内容" [(ngModel)]="formData.content" name="content"></textarea>
+      <span class="tip">{{ formData.content.length }}/300</span>
+    </div>
+    <div class="error">{{ error.content }}</div>
+  </div>
+  <div class="form-item">
+    <div class="button-area">
+      <button [disabled]="isSubmiting">
+        {{ isSubmiting ? "提交中..." : "提交" }}
+      </button>
+    </div>
+  </div>
+</form>

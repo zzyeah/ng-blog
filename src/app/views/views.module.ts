@@ -17,7 +17,6 @@ const VIEWSLIST = [AboutComponent,  MessageComponent, ProjectComponent]
   ],
   imports: [
     CommonModule,
-    ComponentModule,
     HomeModule,
     ArticleModule,
     ArticleDetailModule,

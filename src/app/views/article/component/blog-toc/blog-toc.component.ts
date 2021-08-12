@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'blog-TOC',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-toc.component.less']
 })
 export class BlogTOCComponent implements OnInit {
+  @Input() toc: any;
 
   constructor() { }
 

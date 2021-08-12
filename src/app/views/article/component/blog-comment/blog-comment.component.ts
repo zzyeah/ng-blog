@@ -12,4 +12,5 @@ export class BlogCommentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleSubmit() { }
 }
