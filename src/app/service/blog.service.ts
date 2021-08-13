@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { merge, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { articleCategoryBean, articleCategoryData } from '../bean/article/category.bean';
+import { commentsList, commentsData } from '../bean/article/comment.bean';
 import { articleListData, articleListDataBean } from '../bean/article/list.bean';
 import { routeInfo } from '../views/article/component/article-list/article-list.component';
 
@@ -42,15 +43,20 @@ export class BlogService implements OnInit {
   }
 
   getComments(blogid: any, page = 1, limit = 10): Observable<any> {
-    return this.http.get(`api/comment/${blogid}`, {
+    return this.http.get<any>(`api/comment`, {
       params: {
+        blogid,
         page,
         limit
       }
     }).pipe(
       map(r => {
-        console.log(r);
-        return r;
+        let rep: commentsData = {
+          ...r.data,
+          code: r.code,
+          msg: r.msg
+        }
+        return rep;
       })
     )
   }

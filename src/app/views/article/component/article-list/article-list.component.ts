@@ -17,7 +17,7 @@ export class routeInfo {
   styleUrls: ['./article-list.component.less']
 })
 export class ArticleListComponent implements OnInit {
-  public img: string ='src/assets/img/default.gif';
+  public img: string ='assets/img/default.gif';
   public loading: boolean = true;
   private _data: articleListDataBean;
   @ViewChild('blogContainer', { static: true }) private blogContainer: ElementRef

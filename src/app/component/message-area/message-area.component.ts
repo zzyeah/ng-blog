@@ -1,5 +1,6 @@
 import { EventEmitter, Input } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
+import { comment } from 'src/app/bean/article/comment.bean';
 import { BlogService } from 'src/app/service/blog.service';
 
 @Component({
@@ -7,21 +8,13 @@ import { BlogService } from 'src/app/service/blog.service';
   templateUrl: './message-area.component.html',
   styleUrls: ['./message-area.component.less']
 })
-export class MessageAreaComponent implements OnInit {
+export class MessageAreaComponent {
   @Input() isLoading: boolean = false;
+  @Input() list: [];
+  @Input() title: string;
+  @Input() subTitle: number;
   @Output() submit: EventEmitter<any> = new EventEmitter();
-  public list: [] = []
 
-  constructor(
-    private blogService: BlogService
-  ) { }
-
-  ngOnInit(): void {
-    this.blogService.getComments(1).subscribe(r=>{
-      console.log(r); 
-    })
-  }
-
-
+  constructor() { }
 
 }

@@ -6,11 +6,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./blog-toc.component.less']
 })
 export class BlogTOCComponent implements OnInit {
-  @Input() toc: any;
+  @Input() toc: [];
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.toc);
+    
   }
 
 }

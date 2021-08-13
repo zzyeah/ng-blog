@@ -1,16 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { comment } from 'src/app/bean/article/comment.bean';
 
 @Component({
   selector: 'data-list',
   templateUrl: './data-list.component.html',
   styleUrls: ['./data-list.component.less']
 })
-export class DataListComponent implements OnInit {
-  @Input() list: Array<any> = [];
+export class DataListComponent implements OnInit, OnChanges {
+  @Input() list: comment[];
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  ngOnChanges(): void {
+  }
 }

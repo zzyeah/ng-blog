@@ -19,6 +19,7 @@ import { AvatarModule } from '../avatar/avatar.module';
   imports: [
     CommonModule,
     FormsModule,
+    AvatarModule,
     LoadingModule,
     AvatarModule,
   ],

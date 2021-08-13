@@ -9,8 +9,9 @@ import { BlogService } from 'src/app/service/blog.service';
   styleUrls: ['./article-detail.component.less']
 })
 export class ArticleDetailComponent implements OnInit {
-  public _blog: [] = [];
+  public _blog: any;
   public isLoading:boolean = true;
+  public commentList: [];
   public leftSize:layoutSizeBean = {
     'flex': '0 0 77%'
   }
@@ -36,7 +37,6 @@ export class ArticleDetailComponent implements OnInit {
       this._blog = r.data
       console.log(r.data);
     });
-
   }
 
 }
