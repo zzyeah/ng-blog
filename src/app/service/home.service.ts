@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { homeImgDataBean, ImgDataArray } from '../bean/home/homeImg.bean';
+import { homeImgDataBean, ImgDataArray } from '../bean/home/home-img.bean';
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  private _loading: boolean = false;
-  private _allDone: boolean = false;
+  protected _loading: boolean = false;
+  protected _allDone: boolean = false;
   public page: number = 0;
 
-  constructor(private http: HttpClient) { }
+  constructor(protected http: HttpClient) { }
 
   get loading() {
     return this._loading;
@@ -25,22 +25,25 @@ export class HomeService {
   get allDone() {
     if (!this.loading) this._allDone = true;
     if (this.loading) this._allDone = false;
+    // setInterval(() => {
+    //   this._allDone = true;
+    // }, 10000)
     return this._allDone;
   }
 
   getData(): Observable<homeImgDataBean[]> {
     return this.http.get<ImgDataArray>('api/banner').pipe(
-      map(r=>{
+      map(r => {
         return r.data;
       }),
       catchError(this.handleError<homeImgDataBean[]>('getData', []))
     )
   }
 
-  private log(message: string) {
+  protected log(message: string) {
     console.log(message);
   }
-  private handleError<T>(operation = 'operation', result?: T) {
+  protected handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

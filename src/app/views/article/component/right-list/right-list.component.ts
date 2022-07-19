@@ -1,44 +1,27 @@
 import { EventEmitter } from '@angular/core';
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { articleCategoryBean } from 'src/app/bean/article/category.bean';
-import { BlogService } from 'src/app/service/blog.service';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-right-list',
   templateUrl: './right-list.component.html',
   styleUrls: ['./right-list.component.less']
 })
-export class RightListComponent implements OnInit {
-  @Input() list: articleCategoryBean[];
-  @Input() loading: boolean;
-  public lists: articleCategoryBean[];
+export class RightListComponent {
+  @Input() list: any;
+  @Input() curId: number | string;
   @Output() select: EventEmitter<any> = new EventEmitter()
-  private _id: number | string | null;
+  protected _childCurId: string;
 
-  constructor(private articleService: BlogService, private route: ActivatedRoute, private router: Router) { }
-
-  ngOnInit(): void {
-    
+  public get childCurId() {
+    return this._childCurId;
   }
 
-  public get categoryId() {
-    this._id = this.route.snapshot.paramMap.get('categoryId');
-    if (this._id) {
-      return +this._id;
-    }
-    return -1;
-  }
-
-  handleClick(item: articleCategoryBean) {
-    console.log(item);
-
-    if (item.isSelect !== this._id) {
-      this.select.emit(item);
-    }
-    return;
+  public set childCurId(value: string) {
+    this._childCurId = value;
+   }
+  handleClick(item: any) {
+    this.select.emit(item);
+    this.childCurId = item.isSelect;
   }
 
 }

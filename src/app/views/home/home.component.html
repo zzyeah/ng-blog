@@ -1,5 +1,5 @@
 <div class="home-container" (wheel)="handleWheel($event)">
-  
+  <ng-container *loading="homeService.loading"></ng-container>
   <ul class="carousel" [ngStyle]="{top: topVal}" #carousel >
     <li *ngFor="let item of data" class="carousel-item">
       <app-carousel-item [data]=item></app-carousel-item>

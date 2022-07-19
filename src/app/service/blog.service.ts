@@ -3,21 +3,18 @@ import { Injectable, OnInit } from '@angular/core';
 import { merge, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { articleCategoryBean, articleCategoryData } from '../bean/article/category.bean';
-import { commentsList, commentsData } from '../bean/article/comment.bean';
+import { commentsData } from '../bean/article/comment.bean';
+import { articleDetailData } from '../bean/article/detail.bean';
 import { articleListData, articleListDataBean } from '../bean/article/list.bean';
 import { routeInfo } from '../views/article/component/article-list/article-list.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BlogService implements OnInit {
-  private _loading = false;
-  private _dataLength: number;
-  private _category: articleCategoryBean[] | undefined;
-
-  ngOnInit() {
-    this.getDataObservable()
-  }
+export class BlogService{
+  protected _loading = false;
+  protected _dataLength: number;
+  protected _category: articleCategoryBean[] | undefined;
 
   getArticleTypeData(): Observable<articleCategoryBean[]> {
     return this.http.get<articleCategoryData>('api/blogtype').pipe(
@@ -27,9 +24,12 @@ export class BlogService implements OnInit {
     )
   }
 
-  getBlogById(articleId = -1): Observable<any> {
-    return this.http.get(`api/blog/${articleId}`).pipe(
-      tap(() => console.log(`find blog ${articleId}`))
+  getBlogById(articleId = -1): Observable<articleDetailData> {
+    return this.http.get<articleDetailData>(`api/blog/${articleId}`).pipe(
+      tap((first) => {
+        console.log(`find blog ${articleId}`);
+        console.log(first)
+      })
     )
   }
 
@@ -68,17 +68,25 @@ export class BlogService implements OnInit {
   }
 
 
-  constructor(private http: HttpClient) { }
+  constructor(protected http: HttpClient) { }
 
   /**
-   * get data
+   * control data
    */
   public get loading() {
     return this._loading;
   }
 
+  public set loading(val) {
+    this._loading = val;
+  }
+
   public get dataLength() {
     return this._dataLength;
+  }
+
+  public set dataLength(val) {
+    this._dataLength = val;
   }
 
   public get category() {
@@ -86,19 +94,9 @@ export class BlogService implements OnInit {
     return this._category;
   }
 
-  /**
-   * set data
-   */
-  public set loading(val) {
-    this._loading = val;
-  }
-
-  public set dataLength(val) {
-    this._dataLength = val;
-  }
-
   public set category(val) {
     if (this._category) return;
     this._category = val
   }
+
 }

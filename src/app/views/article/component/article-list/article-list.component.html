@@ -1,11 +1,10 @@
 <div class="article-list-container" #blogContainer>
-  <loading *ngIf="loading"></loading>
-
+  <ng-container *loading="loading"></ng-container>
   <ul *ngIf="data && !loading">
     <li *ngFor="let item of data.rows">
-      <div class="thumb">
+      <div class="thumb" *ngIf="item.thumb">
         <a (click)="handleDetailClick(item.id)">
-          <img [src]="item.thumb" alt="">
+          <img alt="" lazyImg [lazySrc]="item.thumb!" [scrollElement]="blogContainer">
         </a>
       </div>
       <div class="main">
@@ -14,7 +13,7 @@
         </a>
         <div class="aside">
           <span>
-            日期: {{item.createDate | date}}
+            日期: {{item.createDate | date}}f
           </span>
           <span>
             浏览: {{item.scanNumber}}

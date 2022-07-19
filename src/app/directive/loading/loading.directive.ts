@@ -1,14 +1,16 @@
-import { Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import { LoadingComponent } from 'src/app/component/loading/loading.component';
 
 @Directive({
-  selector: '[loading]'
+  selector: '[loading]',
 })
 export class LoadingDirective {
-  private hasView = false;
+  protected hasView = false;
 
   @Input() set loading(condition: boolean) {
     if (condition && !this.hasView) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
+      const loading = this.componentFactoryResolver.resolveComponentFactory(LoadingComponent)
+      this.viewContainer.createComponent(loading);
       this.hasView = true;
     } else if (!condition && this.hasView) {
       this.viewContainer.clear();
@@ -17,9 +19,8 @@ export class LoadingDirective {
   }
 
   constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
-    private el: ElementRef,
+    protected viewContainer: ViewContainerRef,
+    protected componentFactoryResolver: ComponentFactoryResolver,
   ) { }
 
 }

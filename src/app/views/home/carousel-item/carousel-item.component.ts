@@ -1,10 +1,7 @@
 import {
   Component,
-  ElementRef,
   Input,
   OnInit,
-  HostBinding,
-  ViewChild
 } from '@angular/core';
 import {
   trigger,
@@ -13,7 +10,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { homeImgDataBean } from 'src/app/bean/home/homeImg.bean';
+import { homeImgDataBean } from 'src/app/bean/home/home-img.bean';
 
 @Component({
   selector: 'app-carousel-item',
@@ -39,7 +36,7 @@ export class CarouselItemComponent implements OnInit {
 
   @Input() data: homeImgDataBean;
 
-  titleStart = true;
+  titleStart: boolean = true;
   descStart: boolean = true;
 
   constructor() { }

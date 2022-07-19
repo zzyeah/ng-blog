@@ -8,20 +8,21 @@ import { ViewsModule } from './views/views.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipePipe } from './pipe/date-pipe.pipe';
+import { SafePipe } from './pipe/safe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
     PageNotFoundComponent,
     DatePipePipe,
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    LayoutModule,
+    AppRoutingModule,
     ComponentModule,
+    LayoutModule,
     ViewsModule,
     HttpClientModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

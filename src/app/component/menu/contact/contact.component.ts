@@ -53,13 +53,6 @@ const content: contactDataBean[] = [
 })
 
 
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   public content = content;
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
 }

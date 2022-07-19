@@ -1,11 +1,12 @@
 <ul class="right-list-container">
-  <ng-container *ngIf="!loading && list">
+  <ng-container *ngIf="list">
     <li *ngFor="let item of list">
-      <span [ngClass]="{ active: item.isSelect === categoryId }" (click)="handleClick(item)">
+      <span [ngClass]="{ active: item.isSelect === curId }" (click)="handleClick(item)">
         {{ item.name }}
       </span>
-      <span *ngIf="item.aside" class="aside" [ngClass]="{ active: item.isSelect === categoryId }"
+      <span *ngIf="item.aside" class="aside" [ngClass]="{ active: item.isSelect === curId }"
         (click)="handleClick(item)">{{ item.aside }}</span>
+      <app-right-list [list]="item.children" *ngIf="item.children" (select)="handleClick($event)" [curId]="childCurId"></app-right-list>
     </li>
   </ng-container>
 </ul>

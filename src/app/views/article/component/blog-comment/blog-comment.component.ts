@@ -12,7 +12,7 @@ export class BlogCommentComponent implements OnInit {
   public list: [];
   public isLoading = false;
   constructor(
-    private blogService: BlogService
+    protected blogService: BlogService
   ) { }
 
   ngOnInit(): void {

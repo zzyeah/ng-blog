@@ -10,7 +10,7 @@ export class BlogDetailComponent implements OnInit {
   @Input() blog: any;
 
   constructor(
-    private router: Router
+    protected router: Router
   ) { }
 
   ngOnInit(): void {
@@ -19,5 +19,4 @@ export class BlogDetailComponent implements OnInit {
   searchCid(cid: number) {
     this.router.navigate([`article/cate/${cid}`]);
   }
-
 }
