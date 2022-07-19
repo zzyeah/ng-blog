@@ -1,5 +1,5 @@
 <div class="article-category-container">
   <h2>文章分类</h2>
-  <loading *ngIf="loading"></loading>
-  <app-right-list (select)=handleSelect($event) [list]="list" *ngIf="data && !loading"></app-right-list>
+  <ng-container *loading="loading"></ng-container>
+  <app-right-list (select)='handleSelect($event)' [list]="list" *ngIf="data && !loading" [curId]="categoryId"></app-right-list>
 </div>

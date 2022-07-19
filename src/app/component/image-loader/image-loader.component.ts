@@ -15,22 +15,20 @@ export class ImageLoaderComponent implements OnInit {
   @Input() duration: number = 5000;
   public loading: boolean;
   public opacityOrigin: number = 0;
-  public allDone: boolean = false;
 
   constructor(
-    private homeSevice: HomeService
+    protected homeSevice: HomeService
   ) { }
 
   ngOnInit(): void {
   }
 
-  handleLoading() {
-    this.opacityOrigin = 1;
-    setTimeout(() => {
-      this.homeSevice.loading = false;
-      if(this.homeSevice.allDone) this.allDone = true
-    }, this.duration);
+  get allDone(){
+    return this.homeSevice.allDone;
   }
 
+  handleLoading() {
+    this.opacityOrigin = 1;
+  }
 
 }

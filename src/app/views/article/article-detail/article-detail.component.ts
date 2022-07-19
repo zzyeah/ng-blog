@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { layoutSizeBean } from 'src/app/bean/layout/layout.bean';
-import { BlogService } from 'src/app/service/blog.service';
+import { articleDetailBean } from 'src/app/bean/article/detail.bean';
+import { tocCon } from 'src/app/bean/article/toc.bean';
+import { layoutSizeBean } from '../../../bean/layout/layout.bean';
+import { BlogService } from '../../../service/blog.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -9,17 +11,17 @@ import { BlogService } from 'src/app/service/blog.service';
   styleUrls: ['./article-detail.component.less']
 })
 export class ArticleDetailComponent implements OnInit {
-  public _blog: any;
-  public isLoading:boolean = true;
+  public _blog: articleDetailBean;
+  public isLoading: boolean = true;
   public commentList: [];
-  public leftSize:layoutSizeBean = {
+  public leftSize: layoutSizeBean = {
     'flex': '0 0 77%'
   }
 
   constructor(
-    private blogService: BlogService,
-    private route: ActivatedRoute,
-    private router: Router,
+    protected blogService: BlogService,
+    protected route: ActivatedRoute,
+    protected router: Router,
   ) { }
 
   public get blog() {
@@ -34,9 +36,17 @@ export class ArticleDetailComponent implements OnInit {
     const { id } = this.route.snapshot.params;
     this.blogService.getBlogById(id).subscribe(r => {
       this.isLoading = false;
+      this.handleBlogData(r.data.toc);
       this._blog = r.data
-      console.log(r.data);
     });
+  }
+
+  protected handleBlogData(detail: tocCon[], isChild?: number) {
+    detail.forEach((toc, i) => {
+      toc.isSelect = isChild ? `${isChild}-${i + 1}` : i + 1;
+      if (toc.children)
+        this.handleBlogData(toc.children, i + 1)
+    })
   }
 
 }

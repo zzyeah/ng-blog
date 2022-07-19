@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { homeImgDataBean } from 'src/app/bean/home/homeImg.bean';
+import { homeImgDataBean } from 'src/app/bean/home/home-img.bean';
 import { HomeService } from 'src/app/service/home.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   public page: number = 0;
   public upShow: boolean = false;
   public downShow: boolean = true;
-  private height: number;
+  protected height: number;
 
 
   public get topVal() {
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   constructor(
-    private homeService: HomeService,
+    public homeService: HomeService,
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
     this.homeService.loading = true;
     this.homeService.getData().subscribe(
       pages => {
+        console.log(pages)
         this.data = pages;
         this.homeService.loading = false;
         this.maxIndex = pages.length;

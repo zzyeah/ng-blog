@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselItemComponent } from './carousel-item/carousel-item.component';
 import { ComponentModule } from '../../component/component.module';
-import { LoadingComponent } from 'src/app/component/loading/loading.component';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { LoadingDirectiveModule } from 'src/app/directive/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
+    LoadingDirectiveModule
   ],
   exports: [
     HomeComponent,

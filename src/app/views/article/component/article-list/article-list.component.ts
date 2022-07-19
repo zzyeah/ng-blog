@@ -17,15 +17,15 @@ export class routeInfo {
   styleUrls: ['./article-list.component.less']
 })
 export class ArticleListComponent implements OnInit {
-  public img: string ='assets/img/default.gif';
+  public img: string = 'assets/img/default.gif';
   public loading: boolean = true;
-  private _data: articleListDataBean;
-  @ViewChild('blogContainer', { static: true }) private blogContainer: ElementRef
+  protected _data: articleListDataBean;
+  @ViewChild('blogContainer', { static: true }) public blogContainer: ElementRef
 
   constructor(
-    private articleService: BlogService,
-    private route: ActivatedRoute,
-    private router: Router,
+    protected articleService: BlogService,
+    protected route: ActivatedRoute,
+    protected router: Router,
   ) { }
 
   public get data() {
@@ -62,15 +62,14 @@ export class ArticleListComponent implements OnInit {
 
 
   fetchData(): void {
-    this.articleService.getArticleListData(this.routeInfo).subscribe((r) => {
+    this.articleService.getArticleListData(this.routeInfo).subscribe((articleList: articleListDataBean) => {
       this.articleService.loading = false
-      this.data = r;
+      this.data = articleList;
       this.loading = false;
     })
   }
 
-  handlePageChange(newPage: any) {
-    console.log(newPage);
+  handlePageChange(newPage: number) {
     const query = {
       page: newPage,
       limit: this.routeInfo.limit,

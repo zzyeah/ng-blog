@@ -8,8 +8,6 @@ import { LoadingModule } from '../loading/loading.module';
 import { FormsModule } from '@angular/forms';
 import { AvatarModule } from '../avatar/avatar.module';
 
-
-
 @NgModule({
   declarations: [
     MessageAreaComponent,

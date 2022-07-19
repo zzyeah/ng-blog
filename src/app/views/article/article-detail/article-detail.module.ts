@@ -7,6 +7,9 @@ import { LayoutModule } from 'src/app/common/layout/layout.module';
 import { BlogTOCComponent } from '../component/blog-toc/blog-toc.component';
 import { ComponentModule } from 'src/app/component/component.module';
 import { BlogCommentComponent } from '../component/blog-comment/blog-comment.component';
+import { LoadingDirectiveModule } from 'src/app/directive/loading/loading.module';
+import { RightListModule } from '../component/right-list/right-list.module';
+import { PipeModule } from 'src/app/pipe/pipe.module';
 
 
 
@@ -15,13 +18,16 @@ import { BlogCommentComponent } from '../component/blog-comment/blog-comment.com
     ArticleDetailComponent,
     BlogDetailComponent,
     BlogTOCComponent,
-    BlogCommentComponent
+    BlogCommentComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    PipeModule,
     ComponentModule,
-    LayoutModule
+    LayoutModule,
+    LoadingDirectiveModule,
+    RightListModule
   ],
   exports: [
     ArticleDetailComponent

@@ -1,7 +1,5 @@
 import { EventEmitter, Input } from '@angular/core';
-import { Component, OnInit, Output } from '@angular/core';
-import { comment } from 'src/app/bean/article/comment.bean';
-import { BlogService } from 'src/app/service/blog.service';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'message-area',

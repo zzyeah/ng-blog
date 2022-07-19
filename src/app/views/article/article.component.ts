@@ -20,8 +20,8 @@ export class ArticleComponent implements OnInit {
   }
 
   constructor(
-    private route: ActivatedRoute,
-    private articleService: BlogService,
+    protected route: ActivatedRoute,
+    protected articleService: BlogService,
   ) { }
 
   ngOnInit(): void {
