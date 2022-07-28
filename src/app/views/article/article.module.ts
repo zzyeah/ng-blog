@@ -7,10 +7,11 @@ import { ComponentModule } from '../../component/component.module';
 import { LayoutModule } from '../../common/layout/layout.module';
 import { RouterModule } from '@angular/router';
 import { ArticleDetailModule } from './article-detail/article-detail.module';
-import { LoadingDirectiveModule } from 'src/app/directive/loading/loading.module';
+import { LoadingDirectiveModule } from 'app/directive/loading/loading.module';
 import { RightListModule } from './component/right-list/right-list.module';
 import { ArticleCategoryModule } from './component/article-category/article-category.module';
-import { LazyImgModule } from 'src/app/directive/lazy-img/lazy-img.module';
+import { LazyImgModule } from 'app/directive/lazy-img/lazy-img.module';
+import { ArticleRoutingModule } from './article-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { LazyImgModule } from 'src/app/directive/lazy-img/lazy-img.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    ArticleRoutingModule,
 
     // Directive
     LazyImgModule,
@@ -31,6 +32,8 @@ import { LazyImgModule } from 'src/app/directive/lazy-img/lazy-img.module';
 
     LayoutModule,
     ComponentModule,
+
+    ArticleRoutingModule
   ],
   exports: [
     ArticleComponent

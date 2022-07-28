@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { articleDetailBean } from 'src/app/bean/article/detail.bean';
-import { tocCon } from 'src/app/bean/article/toc.bean';
+import { articleDetailBean } from 'app/bean/article/detail.bean';
+import { tocCon } from 'app/bean/article/toc.bean';
 import { layoutSizeBean } from '../../../bean/layout/layout.bean';
 import { BlogService } from '../../../service/blog.service';
 

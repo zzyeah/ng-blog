@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
 import { IconComponent } from './icon/icon.component';
 import { MenuListComponent } from './menu/menu-list/menu-list.component';
 import { ContactComponent } from './menu/contact/contact.component';
@@ -12,6 +12,7 @@ import { LayoutModule } from '../common/layout/layout.module';
 import { MessageAreaModule } from './message-area/message-area.module';
 import { AvatarModule } from './avatar/avatar.module';
 import { PagerModule } from './pager/pager.module';
+import { StoreModule } from '@ngrx/store';
 import { LoadingModule } from './loading/loading.module';
 
 const COMPONENTLIST = [
@@ -43,7 +44,8 @@ const MODULELIST = [
     CommonModule,
     RouterModule,
     LayoutModule,
-    ...MODULELIST
+    ...MODULELIST,
+    StoreModule
   ],
   exports: [
     ...COMPONENTLIST,

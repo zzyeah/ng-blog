@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoadingDirectiveModule } from 'src/app/directive/loading/loading.module';
+import { LoadingDirectiveModule } from 'app/directive/loading/loading.module';
 
 @NgModule({
   declarations: [

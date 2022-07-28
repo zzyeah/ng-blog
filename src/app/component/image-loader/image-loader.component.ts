@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HomeService } from 'src/app/service/home.service';
-
-
-
+import { HomeService } from 'app/service/home.service';
 
 @Component({
   selector: 'app-image-loader',

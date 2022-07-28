@@ -1,5 +1,5 @@
 import { ComponentFactoryResolver, Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { LoadingComponent } from 'src/app/component/loading/loading.component';
+import { LoadingComponent } from 'app/component/loading/loading.component';
 
 @Directive({
   selector: '[loading]',

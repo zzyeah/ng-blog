@@ -23,12 +23,12 @@ export class HomeService {
   }
 
   get allDone() {
-    if (!this.loading) this._allDone = true;
-    if (this.loading) this._allDone = false;
+    // if (!this.loading) this._allDone = true;
+    // if (this.loading) this._allDone = false;
     // setInterval(() => {
-    //   this._allDone = true;
+      // this._allDone = true;
     // }, 10000)
-    return this._allDone;
+    return !this.loading;
   }
 
   getData(): Observable<homeImgDataBean[]> {
@@ -43,6 +43,7 @@ export class HomeService {
   protected log(message: string) {
     console.log(message);
   }
+
   protected handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

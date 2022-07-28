@@ -46,3 +46,4 @@ Thumbs.db
 
 # After Download
 yarn.lock
+package-lock.json

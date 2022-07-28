@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { LoadingDirectiveModule } from "src/app/directive/loading/loading.module";
+import { LoadingDirectiveModule } from "app/directive/loading/loading.module";
 import { RightListModule } from "../right-list/right-list.module";
 import { ArticleCategoryComponent } from "./article-category.component";
 

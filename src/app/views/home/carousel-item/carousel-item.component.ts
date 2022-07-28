@@ -10,7 +10,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { homeImgDataBean } from 'src/app/bean/home/home-img.bean';
+import { homeImgDataBean } from 'app/bean/home/home-img.bean';
 
 @Component({
   selector: 'app-carousel-item',

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { homeImgDataBean } from 'src/app/bean/home/home-img.bean';
-import { HomeService } from 'src/app/service/home.service';
+import { homeImgDataBean } from 'app/bean/home/home-img.bean';
+import { HomeService } from 'app/service/home.service';
 
 @Component({
   selector: 'app-home',

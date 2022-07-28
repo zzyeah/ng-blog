@@ -8,7 +8,9 @@ import { ViewsModule } from './views/views.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipePipe } from './pipe/date-pipe.pipe';
-import { SafePipe } from './pipe/safe.pipe';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './store/auth/auth.reducer';
+import { ArticleModule } from './views/article/article.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,12 @@ import { SafePipe } from './pipe/safe.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    StoreModule.forRoot({ auth: authReducer }),
     ComponentModule,
     LayoutModule,
     ViewsModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

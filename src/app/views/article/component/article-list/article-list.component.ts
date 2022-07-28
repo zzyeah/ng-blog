@@ -2,8 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { articleListBean, articleListDataBean } from 'src/app/bean/article/list.bean';
-import { BlogService } from 'src/app/service/blog.service';
+import { articleListBean, articleListDataBean } from 'app/bean/article/list.bean';
+import { BlogService } from 'app/service/blog.service';
 
 export class routeInfo {
   public page: number;
@@ -59,7 +59,6 @@ export class ArticleListComponent implements OnInit {
       this.fetchData();
     })
   };
-
 
   fetchData(): void {
     this.articleService.getArticleListData(this.routeInfo).subscribe((articleList: articleListDataBean) => {

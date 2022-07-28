@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { contactDataBean } from 'src/app/bean/menu/contact.bean';
+import { contactDataBean } from 'app/bean/menu/contact.bean';
 
 
 
