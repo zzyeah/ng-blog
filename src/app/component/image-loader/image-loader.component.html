@@ -1,5 +1,5 @@
 <div class="image-loader-container">
   <img [src]="placeholder" alt="" *ngIf="!allDone" class="placeholder">
   <img [src]="src" alt="" class="self-center" (load)='handleLoading()'
-    [ngStyle]="{ opacity: opacityOrigin, transition: duration+'ms'}">
+    [ngStyle]="{ opacity: opacityOrigin, transition: duration+'ms' }">
 </div>

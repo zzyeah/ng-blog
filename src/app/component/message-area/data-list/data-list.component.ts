@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { comment } from 'src/app/bean/article/comment.bean';
+import { comment } from 'app/bean/article/comment.bean';
 
 @Component({
   selector: 'data-list',

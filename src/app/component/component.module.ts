@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
 import { IconComponent } from './icon/icon.component';
 import { MenuListComponent } from './menu/menu-list/menu-list.component';
 import { ContactComponent } from './menu/contact/contact.component';
@@ -9,34 +9,47 @@ import { EmptyComponent } from './empty/empty.component';
 import { ImageLoaderComponent } from './image-loader/image-loader.component';
 import { TopComponent } from './top/top.component';
 import { LayoutModule } from '../common/layout/layout.module';
-import { PagerComponent } from './pager/pager.component';
 import { MessageAreaModule } from './message-area/message-area.module';
-import { LoadingModule } from './loading/loading.module';
 import { AvatarModule } from './avatar/avatar.module';
+import { PagerModule } from './pager/pager.module';
+import { StoreModule } from '@ngrx/store';
+import { LoadingModule } from './loading/loading.module';
 
-const COMPONENTLIST = [MenuComponent, EmptyComponent, ImageLoaderComponent, IconComponent, TopComponent, PagerComponent, MessageAreaModule, AvatarModule, LoadingModule,];
+const COMPONENTLIST = [
+  IconComponent, // EmptyComponent 需要IconComponent
+  EmptyComponent, // 无法形成模块导入
+  MenuComponent,
+  ImageLoaderComponent,
+  TopComponent
+];
+
+const MODULELIST = [
+  AvatarModule,
+  MessageAreaModule,
+  PagerModule,
+  LoadingModule
+]
 
 @NgModule({
   declarations: [
     MenuComponent,
+    EmptyComponent,
     IconComponent,
     MenuListComponent,
     ContactComponent,
-    EmptyComponent,
     ImageLoaderComponent,
     TopComponent,
-    PagerComponent,
   ],
   imports: [
     CommonModule,
-    LayoutModule,
-    AvatarModule,
-    MessageAreaModule,
-    LoadingModule,
     RouterModule,
+    LayoutModule,
+    ...MODULELIST,
+    StoreModule
   ],
   exports: [
-    ...COMPONENTLIST
+    ...COMPONENTLIST,
+    ...MODULELIST
   ]
 })
 export class ComponentModule { }

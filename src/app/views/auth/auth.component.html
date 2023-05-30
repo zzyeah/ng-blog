@@ -1,0 +1,11 @@
+login work!
+<form [formGroup]="authForm" (ngSubmit)="submitUser($event.submitter.id)">
+  <ng-container *ngIf="isShowInputs">
+    <input type="text" name="" id="" placeholder="请输入用户名～" formControlName="userName">
+    <input type="text" name="" id="" placeholder="请输入密码～" formControlName="passWord">
+  </ng-container>
+
+  <button type="submit" [disabled]="authForm.invalid" id="login">登录</button>
+  <button type="submit" [disabled]="authForm.invalid" id="logout">登出</button>
+</form>
+<div>{{auth$ | async | json}}</div>

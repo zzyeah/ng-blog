@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { contactDataBean } from 'src/app/bean/menu/contact.bean';
+import { contactDataBean } from 'app/bean/menu/contact.bean';
 
 
 
@@ -53,13 +53,6 @@ const content: contactDataBean[] = [
 })
 
 
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   public content = content;
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
 }

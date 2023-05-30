@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from 'src/app/service/blog.service';
+import { BlogService } from 'app/service/blog.service';
 
 @Component({
   selector: 'blog-comment',
@@ -12,7 +12,7 @@ export class BlogCommentComponent implements OnInit {
   public list: [];
   public isLoading = false;
   constructor(
-    private blogService: BlogService
+    protected blogService: BlogService
   ) { }
 
   ngOnInit(): void {

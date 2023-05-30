@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { layoutSizeBean } from 'src/app/bean/layout/layout.bean';
+import { Store } from '@ngrx/store';
+import { layoutSizeBean } from 'app/bean/layout/layout.bean';
+import { AppState } from 'app/bean/store/app.state';
 
 @Component({
   selector: 'app-top',
@@ -22,10 +24,17 @@ export class TopComponent implements OnInit {
     alignItems: 'center',
     paddingRight: '4rem'
   }
+  public isShowLogin: boolean;
 
-  constructor() { }
+  constructor(
+    protected store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.store.select('auth').subscribe(authInfo=>{
+      this.isShowLogin = !authInfo.authStatus;
+      console.log(this.isShowLogin)
+    })
   }
 
 }

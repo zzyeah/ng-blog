@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { MessageComponent } from './message/message.component';
 import { ProjectComponent } from './project/project.component';
-import { ComponentModule } from '../component/component.module';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { ArticleModule } from './article/article.module';
 import { ArticleDetailModule } from './article/article-detail/article-detail.module';
+import { AuthModule } from './auth/auth.module';
 
-const VIEWSLIST = [AboutComponent,  MessageComponent, ProjectComponent]
+const VIEWSLIST = [AboutComponent, MessageComponent, ProjectComponent]
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ const VIEWSLIST = [AboutComponent,  MessageComponent, ProjectComponent]
     HomeModule,
     ArticleModule,
     ArticleDetailModule,
+    AuthModule,
     RouterModule
   ],
   exports: [

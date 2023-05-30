@@ -1,1 +1,4 @@
-<p>blog-toc works!</p>
+<div class="blog-toc-container">
+  <h2>目录</h2>
+  <app-right-list [list]="toc" (select)="handleSelect($event)" [curId]="curId"></app-right-list>
+</div>

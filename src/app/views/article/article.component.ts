@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { articleCategoryBean } from 'src/app/bean/article/category.bean';
-import { articleListBean } from 'src/app/bean/article/list.bean';
-import { layoutSizeBean } from 'src/app/bean/layout/layout.bean';
-import { BlogService } from 'src/app/service/blog.service';
+import { articleCategoryBean } from 'app/bean/article/category.bean';
+import { articleListBean } from 'app/bean/article/list.bean';
+import { layoutSizeBean } from 'app/bean/layout/layout.bean';
+import { BlogService } from 'app/service/blog.service';
 
 @Component({
   selector: 'app-article',
@@ -20,8 +20,8 @@ export class ArticleComponent implements OnInit {
   }
 
   constructor(
-    private route: ActivatedRoute,
-    private articleService: BlogService,
+    protected route: ActivatedRoute,
+    protected articleService: BlogService,
   ) { }
 
   ngOnInit(): void {

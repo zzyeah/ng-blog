@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { articleCategoryBean } from 'src/app/bean/article/category.bean';
-import { BlogService } from 'src/app/service/blog.service';
+import { articleCategoryBean } from 'app/bean/article/category.bean';
+import { BlogService } from 'app/service/blog.service';
 
 @Component({
   selector: 'app-article-category',
@@ -12,18 +12,19 @@ export class ArticleCategoryComponent implements OnInit {
   public _list: articleCategoryBean[] = [];
   public data: articleCategoryBean[];
   public loading: boolean = true;
+  protected _id: number | string | null;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private articleService: BlogService,
+    protected router: Router,
+    protected route: ActivatedRoute,
+    protected articleService: BlogService,
   ) { }
 
   ngOnInit(): void {
     this.initData();
   }
 
-  private initData() {
+  protected initData() {
     this.loading = true;
     if (this.articleService.category) {
       this.data = this.articleService.category;
@@ -42,6 +43,14 @@ export class ArticleCategoryComponent implements OnInit {
         }
       }
     })
+  }
+
+  public get categoryId() {
+    this._id = this.route.snapshot.paramMap.get('categoryId');
+    if (this._id) {
+      return +this._id;
+    }
+    return -1;
   }
 
   public get list() {
@@ -66,7 +75,7 @@ export class ArticleCategoryComponent implements OnInit {
     );
   }
 
-  private get limit() {
+  protected get limit() {
     let limit;
     this.route.queryParams.subscribe(
       r => limit = r.limit
@@ -75,6 +84,10 @@ export class ArticleCategoryComponent implements OnInit {
   }
 
   handleSelect(el: articleCategoryBean) {
+    if (el.isSelect === this.categoryId) return;
+
+    console.log(el)
+
     const query = {
       page: 1,
       limit: this.limit

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { layoutSizeBean } from 'src/app/bean/layout/layout.bean';
+import { layoutSizeBean } from 'app/bean/layout/layout.bean';
 
 @Component({
   selector: 'app-lr',

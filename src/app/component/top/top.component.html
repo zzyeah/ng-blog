@@ -3,9 +3,12 @@
         <ng-container viewLeft>
             <div class="brand">商标</div>
         </ng-container>
-        <ng-container viewRight>
+        <ng-template viewRight [ngIf]="isShowLogin" [ngIfElse]="showLogin" >
             <div class="login">登陆</div>
             <div class="reg">注册</div>
-        </ng-container>
+        </ng-template>
+        <ng-template #showLogin>
+          <a [routerLink]="['/login']">个人中心</a>
+        </ng-template>
     </app-lr>
 </div>
